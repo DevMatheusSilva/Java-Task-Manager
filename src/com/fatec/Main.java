@@ -1,4 +1,4 @@
-package com.fatec.main;
+package com.fatec;
 
 public class Main {
 
