@@ -10,8 +10,7 @@ public class Task {
     private boolean completed;
 
     // Constructor
-    public Task(int task_id, String task_name, String desc, LocalDate due_date, boolean completed) {
-        this.task_id = task_id;
+    public Task(String task_name, String desc, LocalDate due_date, boolean completed) {
         this.task_name = task_name;
         this.desc = desc;
         this.due_date = due_date;
@@ -62,7 +61,9 @@ public class Task {
     // Show Status
     @Override
     public String toString() {
-        return "Task [task_id = " + task_id + "task_name = " + task_name + "desc = " + desc +
-                "due_date = " + due_date + "completed = " + completed;
+        return "Task { \ntask_id = " + task_id + "\ntask_name = " + task_name +
+                "\ndesc = " + desc + "\ndue_date = " + due_date +
+                "\ncompleted = " + completed + "\n}" +
+                "\n-----------------------------------------------------";
     }
 }
