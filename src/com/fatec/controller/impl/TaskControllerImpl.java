@@ -1,7 +1,9 @@
 package com.fatec.controller.impl;
 
-import com.fatec.controller.interfaces.TaskController;
 import com.fatec.model.entities.Task;
+
+import com.fatec.controller.interfaces.TaskController;
+import com.fatec.model.entities.TaskRepository;
 
 public class TaskControllerImpl implements TaskController{
 
