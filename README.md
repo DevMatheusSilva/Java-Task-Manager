@@ -1,5 +1,5 @@
 # Java-Task-Manager
-Gerenciador de tarefas implementado em Java para treinar conceitos de Orientação a Objetos usando a arquitetura MVC para organização deste.
+Gerenciador de tarefas implementado em Java para treinar conceitos de Orientação a Objetos usando a arquitetura MVC para melhor organização da implementação.
 
 ## Estrutura do projeto
 
