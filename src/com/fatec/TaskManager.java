@@ -25,7 +25,21 @@ public class TaskManager {
         control.createTask(testTask); // Make the controller create a task
         control.createTask(secondTestTask);
 
+        System.out.println("Before removing the second task");
         for (Task task : tasks){ // Show the tasks (move to the view)
+            System.out.println(task.toString());
+        }
+
+        control.removeTask(secondTestTask); // Remove the second task
+
+        System.out.println("After removing the second task");
+        for (Task task : tasks){
+            System.out.println(task.toString());
+        }
+
+        control.createTask(secondTestTask);
+
+        for (Task task : tasks){
             System.out.println(task.toString());
         }
 

@@ -23,6 +23,8 @@ public class TaskRepository {
     public void removeTask(Task rem_task){
         // Remove the task with the same id
         tasks.removeIf(task -> task.getTask_id() == rem_task.getTask_id());
+        // Re-set in nextId
+        nextId--;
     }
 
 }
