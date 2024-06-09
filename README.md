@@ -25,19 +25,19 @@ src/
 ## Funcionalidades
 Ainda há funcionalidades em desenvolvimento, para tanto, abaixo estão listadas apenas funcionalidades que já foram implementadas e testadas anteriormente:
 
-- Criar Tarefa
-- Excluir Tarefa
-- Consultar Tarefa por ID
-- Criar Usuário
-- Excluir Usuário
-- Consultar Usuário por ID
-
+> - Criar Tarefa
+> - Excluir Tarefa
+> - Consultar Tarefa por ID
+> - Criar Usuário
+> - Excluir Usuário
+> - Consultar Usuário por ID
+> - Alterar Tarefas
+> - Alterar Usuários
+  
 ## Funcionalidades Futuras
-
 As funcionalidades abaixo estão sendo desenvolvidas no momento:
 
-- Alterar Tarefas
-- Alterar Usuários
+> - Menu de opções - Criar Tarefa e Criar Usuário
 
 ## Escopo futuro
 No momento, mais funções estão sendo desenvolvidas para atender aos requisitos funcionais e não funcionais do projeto.
