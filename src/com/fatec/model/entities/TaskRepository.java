@@ -24,9 +24,19 @@ public class TaskRepository {
     public void showAllTasks(){
         tasks.forEach(task -> System.out.println(task));
     }
+
+    public void updateTaskName(int id, String new_name){
+        Task task = getTaskById(id);
+        task.setTask_name(new_name);
+    }
     
+    public void updateTaskDesc(int id, String newDesc){
+        Task task = getTaskById(id);
+        task.setDesc(newDesc);
+    }
+
     public Task getTaskById(int id){
         return tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
     }
-
+    
 }
