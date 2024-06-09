@@ -5,42 +5,78 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.fatec.model.entities.Task;
+import com.fatec.model.entities.User;
 import com.fatec.controller.impl.TaskControllerImpl;
+import com.fatec.controller.impl.UserControllerImpl;
 import com.fatec.model.entities.TaskRepository;
+import com.fatec.model.entities.UserRepository;
 
 
 public class TaskManager {
 
     public static void main(String[] args) {
 
-        List <Task> tasks = new ArrayList <> (); // Create a list to track all tasks
-        TaskRepository repository = new TaskRepository(tasks); // Create a repository to work on the tasks
-        TaskControllerImpl control = new TaskControllerImpl(repository); // Create a controller to control the tasks
+        // Task
+        List <Task> tasks = new ArrayList <> ();
+        TaskRepository repository = new TaskRepository(tasks);
+        TaskControllerImpl control = new TaskControllerImpl(repository);
+        LocalDate date = LocalDate.now();
 
-        LocalDate date = LocalDate.now(); // The actual date
+        Task testTask = new Task("Test Name", "This is a Test Task", date, false);
+        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task", date, false);
 
-        Task testTask = new Task("Test Name", "This is a Test Task", date, false); // Create a test task
-        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task", date, false); // Create a second test task
-
-        control.createTask(testTask); // Make the controller create a task
+        control.createTask(testTask);
         control.createTask(secondTestTask);
 
-        System.out.println("Before removing the second task");
-        for (Task task : tasks){ // Show the tasks (move to the view)
-            System.out.println(task.toString());
-        }
+        // User
+        List <User> users = new ArrayList <> ();
+        UserRepository user_repository = new UserRepository(users);
+        UserControllerImpl user_control = new UserControllerImpl(user_repository);
 
-        control.removeTask(secondTestTask); // Remove the second task
+        User testUser = new User("abc", "u1@gmeil.com", "Test User 1");
+        User secondTestUser = new User("123", "u2@gmeil.com", "Test User 2");
 
-        System.out.println("After removing the second task");
+        user_control.createUser(testUser);
+        user_control.createUser(secondTestUser);
+
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Tasks");
         for (Task task : tasks){
             System.out.println(task.toString());
         }
 
-        control.createTask(secondTestTask);
+        System.out.println("Users");
+        for (User user : users){
+            System.out.println(user.toString());
+        }
 
+        control.removeTask(secondTestTask);
+        user_control.removeUser(secondTestUser);
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Tasks");
         for (Task task : tasks){
             System.out.println(task.toString());
+        }
+
+        System.out.println("Users");
+        for (User user : users){
+            System.out.println(user.toString());
+        }
+
+        control.createTask(secondTestTask);
+        user_control.createUser(secondTestUser);
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Tasks");
+        for (Task task : tasks){
+            System.out.println(task.toString());
+        }
+
+        System.out.println("Users");
+        for (User user : users){
+            System.out.println(user.toString());
         }
 
     }

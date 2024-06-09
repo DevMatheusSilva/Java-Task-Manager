@@ -2,12 +2,11 @@ package com.fatec.model.entities;
 
 import com.fatec.model.entities.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TaskRepository {
 
-    private List <Task> tasks = new ArrayList<>();
+    private final List <Task> tasks;
     private int nextId = 1;
 
     public TaskRepository(List <Task> tasks) {
