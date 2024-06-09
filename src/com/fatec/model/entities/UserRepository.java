@@ -1,7 +1,5 @@
 package com.fatec.model.entities;
 
-import com.fatec.model.entities.User;
-
 import java.util.List;
 
 public class UserRepository {
@@ -26,4 +24,17 @@ public class UserRepository {
         nextId--;
     }
 
-}
+    public User getUserById(int id){
+        for (User user : users){
+            if (user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void showUsers(){
+        users.forEach(user -> System.out.println(user));
+    }
+    
+}   

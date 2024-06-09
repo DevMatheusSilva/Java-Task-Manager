@@ -23,4 +23,14 @@ public class TaskControllerImpl implements TaskController{
         repository.removeTask(rem_task);
     }
 
+    @Override
+    public void showAllTasks() {
+        repository.showAllTasks();
+    }
+    
+    @Override
+    public Task getTaskById(int id) {
+        return repository.getTaskById(id);
+    }
+    
 }

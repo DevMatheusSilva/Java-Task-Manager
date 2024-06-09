@@ -52,7 +52,7 @@ public class User {
         return "User { \nname = " + name +
                 "\nemail = " + email +
                 "\npassword: " + password +
-                "\n";
+                "\n}";
     }
 
 }

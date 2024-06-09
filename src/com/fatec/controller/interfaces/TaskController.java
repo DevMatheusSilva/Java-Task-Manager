@@ -6,5 +6,7 @@ public interface TaskController {
 
     void createTask(Task new_task);
     void removeTask(Task rem_task);
+    Task getTaskById(int id);
+    void showAllTasks();
 
 }

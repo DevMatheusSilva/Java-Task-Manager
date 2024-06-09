@@ -22,4 +22,14 @@ public class UserControllerImpl implements UserController{
         repository.removeUser(rem_user);
     }
 
-}
+    @Override
+    public void showUsers() {
+        repository.showUsers();
+    }
+    
+    @Override
+    public User getUserById(int id){
+        return repository.getUserById(id);
+    }
+
+}   
