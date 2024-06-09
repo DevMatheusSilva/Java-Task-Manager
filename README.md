@@ -27,14 +27,17 @@ Ainda há funcionalidades em desenvolvimento, para tanto, abaixo estão listadas
 
 - Criar Tarefa
 - Excluir Tarefa
+- Consultar Tarefa por ID
+- Criar Usuário
+- Excluir Usuário
+- Consultar Usuário por ID
 
 ## Funcionalidades Futuras
 
 As funcionalidades abaixo estão sendo desenvolvidas no momento:
 
-- CRUD Usuário
-- Consultar tarefas
 - Alterar Tarefas
+- Alterar Usuários
 
 ## Escopo futuro
 No momento, mais funções estão sendo desenvolvidas para atender aos requisitos funcionais e não funcionais do projeto.
