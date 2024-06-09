@@ -1,7 +1,6 @@
 package com.fatec.controller.impl;
 
 import com.fatec.model.entities.Task;
-
 import com.fatec.controller.interfaces.TaskController;
 import com.fatec.model.entities.TaskRepository;
 
@@ -19,7 +18,8 @@ public class TaskControllerImpl implements TaskController{
     }
 
     @Override
-    public void removeTask(Task rem_task) {
+    public void removeTask(int id) {
+        Task rem_task = repository.getTaskById(id);
         repository.removeTask(rem_task);
     }
 
@@ -33,4 +33,14 @@ public class TaskControllerImpl implements TaskController{
         return repository.getTaskById(id);
     }
     
+    @Override
+    public void updateTaskName(int id, String newName){
+        repository.updateTaskName(id, newName);
+    }
+
+    @Override
+    public void updateTaskDesc(int id, String newDesc){
+        repository.updateTaskDesc(id, newDesc);
+    }
+
 }

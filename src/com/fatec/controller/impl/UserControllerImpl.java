@@ -32,4 +32,14 @@ public class UserControllerImpl implements UserController{
         return repository.getUserById(id);
     }
 
+    @Override
+    public void updateUserName(int id, String newName){
+        repository.updateUserName(id, newName);
+    }
+    
+    @Override
+    public void updateUserEmail(int id, String newEmail){
+        repository.updateUserEmail(id, newEmail);
+    }
+    
 }   
