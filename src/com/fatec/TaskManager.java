@@ -23,8 +23,8 @@ public class TaskManager {
         UserRepository user_repository = new UserRepository(users);
         UserControllerImpl user_control = new UserControllerImpl(user_repository);
 
-        Task testTask = new Task("Test Name", "This is a Test Task", false);
-        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task", false);
+        Task testTask = new Task("Test Name", "This is a Test Task");
+        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task");
         control.createTask(testTask);
         control.createTask(secondTestTask);
 

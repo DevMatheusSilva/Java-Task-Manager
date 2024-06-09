@@ -10,10 +10,10 @@ public class Task {
     private boolean completed;
 
     // Constructor
-    public Task(String task_name, String desc, boolean completed) {
+    public Task(String task_name, String desc) {
         this.task_name = task_name;
         this.desc = desc;
-        this.completed = completed;
+        completed = false;
         date = LocalDate.now();
     }
 
