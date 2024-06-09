@@ -5,43 +5,82 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.fatec.model.entities.Task;
+import com.fatec.model.entities.User;
 import com.fatec.controller.impl.TaskControllerImpl;
+import com.fatec.controller.impl.UserControllerImpl;
 import com.fatec.model.entities.TaskRepository;
+import com.fatec.model.entities.UserRepository;
 
 
 public class TaskManager {
 
     public static void main(String[] args) {
 
-        List <Task> tasks = new ArrayList <> (); // Create a list to track all tasks
-        TaskRepository repository = new TaskRepository(tasks); // Create a repository to work on the tasks
-        TaskControllerImpl control = new TaskControllerImpl(repository); // Create a controller to control the tasks
+        List <Task> tasks = new ArrayList <> ();
+        List <User> users = new ArrayList <> ();
+        
+        TaskRepository repository = new TaskRepository(tasks);
+        TaskControllerImpl control = new TaskControllerImpl(repository);
+        UserRepository user_repository = new UserRepository(users);
+        UserControllerImpl user_control = new UserControllerImpl(user_repository);
 
-        LocalDate date = LocalDate.now(); // The actual date
+        LocalDate date = LocalDate.now();
 
-        Task testTask = new Task("Test Name", "This is a Test Task", date, false); // Create a test task
-        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task", date, false); // Create a second test task
+        Task testTask = new Task("Test Name", "This is a Test Task", date, false);
+        Task secondTestTask = new Task("Second Test Name", "This is a Second Test Task", date, false);
+        User testUser = new User("abc", "u1@gmeil.com", "Test User 1");
+        User secondTestUser = new User("123", "u2@gmeil.com", "Test User 2");
 
-        control.createTask(testTask); // Make the controller create a task
+        control.createTask(testTask);
         control.createTask(secondTestTask);
+        user_control.createUser(testUser);
+        user_control.createUser(secondTestUser);
 
-        System.out.println("Before removing the second task");
-        for (Task task : tasks){ // Show the tasks (move to the view)
-            System.out.println(task.toString());
-        }
+        //-----------------------------------------------------------------------------------
+        System.out.println("Shows the tasks and users created\n");
+        
+        System.out.println("Tasks\n");
+        control.showAllTasks();
 
-        control.removeTask(secondTestTask); // Remove the second task
+        System.out.println("Users\n");
+        user_control.showUsers();
+        //-----------------------------------------------------------------------------------
 
-        System.out.println("After removing the second task");
-        for (Task task : tasks){
-            System.out.println(task.toString());
-        }
+
+        control.removeTask(secondTestTask);
+        user_control.removeUser(secondTestUser);
+
+
+        //-----------------------------------------------------------------------------------
+        System.out.println("Shows the tasks and users after removing the second task and user\n");
+        
+        System.out.println("Tasks");
+        control.showAllTasks();
+
+        System.out.println("Users");
+        user_control.showUsers();
+        //-----------------------------------------------------------------------------------
+
 
         control.createTask(secondTestTask);
+        user_control.createUser(secondTestUser);
 
-        for (Task task : tasks){
-            System.out.println(task.toString());
-        }
+
+        //-----------------------------------------------------------------------------------
+        System.out.println("Shows the tasks and users after adding the second task and user again\n");
+        
+        System.out.println("Tasks");
+        control.showAllTasks();
+
+        System.out.println("Users");
+        user_control.showUsers();
+        //-----------------------------------------------------------------------------------
+        
+        System.out.println("Getting the task by id\n");
+        System.out.println(control.getTaskById(1));
+        
+        System.out.println("Getting the user by id\n");
+        System.out.println(user_control.getUserById(1));
 
     }
 

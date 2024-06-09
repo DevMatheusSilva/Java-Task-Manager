@@ -7,11 +7,10 @@ public class User {
     private String password;
 
     // Constructor
-    public User(String password, String email, String name, int id) {
+    public User(String password, String email, String name) {
         this.password = password;
         this.email = email;
         this.name = name;
-        this.id = id;
     }
 
     // Getters and Setters
@@ -46,4 +45,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // Show Status
+    @Override
+    public String toString() {
+        return "User { \nname = " + name +
+                "\nemail = " + email +
+                "\npassword: " + password +
+                "\n}";
+    }
+
 }

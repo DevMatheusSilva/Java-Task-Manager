@@ -1,13 +1,10 @@
 package com.fatec.model.entities;
 
-import com.fatec.model.entities.Task;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class TaskRepository {
 
-    private List <Task> tasks = new ArrayList<>();
+    private final List <Task> tasks;
     private int nextId = 1;
 
     public TaskRepository(List <Task> tasks) {
@@ -25,6 +22,20 @@ public class TaskRepository {
         tasks.removeIf(task -> task.getTask_id() == rem_task.getTask_id());
         // Re-set in nextId
         nextId--;
+    }
+
+    public void showAllTasks(){
+        tasks.forEach(task -> System.out.println(task));
+    }
+    
+    public Task getTaskById(int id){
+        for (Task task : tasks){
+            if (task.getTask_id() == id){
+                return task;
+            }
+        }
+
+        return null;
     }
 
 }

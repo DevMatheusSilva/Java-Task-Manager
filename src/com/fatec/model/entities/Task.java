@@ -22,8 +22,8 @@ public class Task {
         return task_id;
     }
 
-    public void setTask_id(int task_id) {
-        this.task_id = task_id;
+    public void setTask_id(int id){
+        this.task_id = id;
     }
 
     public String getTask_name() {
@@ -64,6 +64,6 @@ public class Task {
         return "Task { \ntask_id = " + task_id + "\ntask_name = " + task_name +
                 "\ndesc = " + desc + "\ndue_date = " + due_date +
                 "\ncompleted = " + completed + "\n}" +
-                "\n-----------------------------------------------------";
+                "\n";
     }
 }
