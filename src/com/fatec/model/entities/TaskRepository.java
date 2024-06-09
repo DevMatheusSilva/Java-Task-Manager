@@ -12,15 +12,12 @@ public class TaskRepository {
     }
 
     public void addTask(Task new_task){
-        // Ads a new id to the task and increment nextId
         new_task.setTask_id(nextId++);
         tasks.add(new_task);
     }
 
     public void removeTask(Task rem_task){
-        // Remove the task with the same id
         tasks.removeIf(task -> task.getTask_id() == rem_task.getTask_id());
-        // Re-set in nextId
         nextId--;
     }
 
@@ -29,13 +26,7 @@ public class TaskRepository {
     }
     
     public Task getTaskById(int id){
-        for (Task task : tasks){
-            if (task.getTask_id() == id){
-                return task;
-            }
-        }
-
-        return null;
+        return tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
     }
 
 }

@@ -6,15 +6,15 @@ public class Task {
     private int task_id;
     private String task_name;
     private String desc;
-    private LocalDate due_date;
+    private LocalDate date;
     private boolean completed;
 
     // Constructor
-    public Task(String task_name, String desc, LocalDate due_date, boolean completed) {
+    public Task(String task_name, String desc, boolean completed) {
         this.task_name = task_name;
         this.desc = desc;
-        this.due_date = due_date;
         this.completed = completed;
+        date = LocalDate.now();
     }
 
     // Getters and Setters
@@ -42,12 +42,12 @@ public class Task {
         this.desc = desc;
     }
 
-    public LocalDate getDueDate() {
-        return due_date;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDueDate(LocalDate due_date) {
-        this.due_date = due_date;
+    public void setDueDate(LocalDate date) {
+        this.date = date;
     }
 
     public boolean isCompleted() {
@@ -62,8 +62,9 @@ public class Task {
     @Override
     public String toString() {
         return "Task { \ntask_id = " + task_id + "\ntask_name = " + task_name +
-                "\ndesc = " + desc + "\ndue_date = " + due_date +
+                "\ndesc = " + desc + "\ndate = " + date +
                 "\ncompleted = " + completed + "\n}" +
                 "\n";
     }
+
 }
