@@ -37,7 +37,7 @@ Ainda há funcionalidades em desenvolvimento, para tanto, abaixo estão listadas
 ## Funcionalidades Futuras
 As funcionalidades abaixo estão sendo desenvolvidas no momento:
 
-> - Menu de opções - Criar Tarefa e Criar Usuário
+> - Menu de opções
 
 ## Escopo futuro
 No momento, mais funções estão sendo desenvolvidas para atender aos requisitos funcionais e não funcionais do projeto.
