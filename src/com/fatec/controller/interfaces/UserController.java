@@ -6,9 +6,9 @@ public interface UserController {
     
     void createUser(User new_user);
     void removeUser(User rem_user);
-    void updateUserName(int id, String newName);
-    void updateUserEmail(int id, String newEmail);
-    User getUserById(int id);
+    void updateUserName(String oldName, String newName);
+    void updateUserEmail(String userName, String newEmail);
+    User getUserByName(String userName);
     void showUsers();
 
 }

@@ -18,8 +18,8 @@ public class TaskControllerImpl implements TaskController{
     }
 
     @Override
-    public void removeTask(int id) {
-        Task rem_task = repository.getTaskById(id);
+    public void removeTask(String remName) {
+        Task rem_task = repository.getTaskByName(remName);
         repository.removeTask(rem_task);
     }
 
@@ -29,18 +29,18 @@ public class TaskControllerImpl implements TaskController{
     }
     
     @Override
-    public Task getTaskById(int id) {
-        return repository.getTaskById(id);
+    public Task getTaskByName(String taskName) {
+        return repository.getTaskByName(taskName);
     }
     
     @Override
-    public void updateTaskName(int id, String newName){
-        repository.updateTaskName(id, newName);
+    public void updateTaskName(String oldName, String newName){
+        repository.updateTaskName(oldName, newName);
     }
 
     @Override
-    public void updateTaskDesc(int id, String newDesc){
-        repository.updateTaskDesc(id, newDesc);
+    public void updateTaskDesc(String taskName, String newDesc){
+        repository.updateTaskDesc(taskName, newDesc);
     }
 
 }

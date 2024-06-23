@@ -19,11 +19,6 @@ public class TaskView {
         return sc.nextLine();
     }
 
-    public int getTaskId(){
-        System.out.print("Enter the task ID: ");
-        return sc.nextInt();
-    }
-
     public void createTask(TaskControllerImpl taskControl){
 
         String taskName = getTaskName();
@@ -38,7 +33,7 @@ public class TaskView {
 
         switch (option) {
             case 'Y':
-                Task task = taskControl.getTaskById(newTask.getTask_id());
+                Task task = taskControl.getTaskByName(newTask.getTask_name());
                 System.out.println("\n" + task);
                 break;
             case 'N':
@@ -51,7 +46,7 @@ public class TaskView {
     }
 
     public void findTask(TaskControllerImpl taskControl){
-        Task taskFound = taskControl.getTaskById(getTaskId());
+        Task taskFound = taskControl.getTaskByName(getTaskName());
         if (taskFound != null) {
             System.out.println("\n" + taskFound);
         }

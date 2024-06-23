@@ -23,11 +23,6 @@ public class UserView {
         return sc.nextLine();
     }
 
-    public int getUserId(){
-        System.out.print("Enter the user ID: ");
-        return sc.nextInt();
-    }
-
     public void signUp(UserControllerImpl userControl){
         String name = getName();
         String email = getEmail();
@@ -41,7 +36,7 @@ public class UserView {
 
         switch (option) {
             case 'Y':
-                User user = userControl.getUserById(newUser.getId());
+                User user = userControl.getUserByName(newUser.getName());
                 System.out.println("\n" + user);
                 break;
             case 'N':
@@ -54,7 +49,7 @@ public class UserView {
     }
 
     public void findUser(UserControllerImpl userControl){
-        User userFound = userControl.getUserById(getUserId());
+        User userFound = userControl.getUserByName(getName());
         if (userFound != null){
             System.out.println("\n" + userFound);
         }

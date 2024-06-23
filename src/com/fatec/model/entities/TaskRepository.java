@@ -25,21 +25,22 @@ public class TaskRepository {
         tasks.forEach(System.out::println);
     }
 
-    public void updateTaskName(int id, String new_name){
-        Task task = getTaskById(id);
+    public void updateTaskName(String oldName, String new_name){
+        Task task = getTaskByName(oldName);
         task.setTask_name(new_name);
     }
     
-    public void updateTaskDesc(int id, String newDesc){
-        Task task = getTaskById(id);
+    public void updateTaskDesc(String taskName, String newDesc){
+        Task task = getTaskByName(taskName);
         task.setDesc(newDesc);
     }
 
-    public Task getTaskById(int id){
+    public Task getTaskByName(String taskName){
+
         try{
-            Task reTask = tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
+            Task reTask = tasks.stream().filter(task -> task.getTask_name().toUpperCase().contains(taskName.toUpperCase())).findFirst().orElse(null);
             if (reTask == null){
-                throw new Exception("The task with the id " + id + " was not founded");
+                throw new Exception("The task '" + taskName + "' does not exist");
             } else {
                 return reTask;
             }
