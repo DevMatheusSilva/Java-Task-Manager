@@ -61,7 +61,7 @@ public class Task {
     // Show Status
     @Override
     public String toString() {
-        return "Task { \ntask_id = " + task_id + "\ntask_name = " + task_name +
+        return "Task {\ntask_name = " + task_name +
                 "\ndesc = " + desc + "\ndate = " + date +
                 "\ncompleted = " + completed + "\n}" +
                 "\n";
