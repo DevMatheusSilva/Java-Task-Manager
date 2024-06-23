@@ -1,18 +1,12 @@
 package com.fatec.view;
 
+import com.fatec.controller.impl.TaskControllerImpl;
 import com.fatec.controller.impl.UserControllerImpl;
-import com.fatec.model.entities.UserRepository;
-import com.fatec.model.entities.Task;
 import com.fatec.model.entities.User;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserView {
     Scanner sc = new Scanner(System.in);
-
-    List <User> users = new ArrayList<User>();
-    UserControllerImpl userControl = new UserControllerImpl(new UserRepository(users));
 
     public String getName(){
         System.out.print("Enter your name: ");
@@ -29,7 +23,12 @@ public class UserView {
         return sc.nextLine();
     }
 
-    public void signUp(){
+    public int getUserId(){
+        System.out.print("Enter the user ID: ");
+        return sc.nextInt();
+    }
+
+    public void signUp(UserControllerImpl userControl){
         String name = getName();
         String email = getEmail();
         String password = getPassword();
@@ -42,9 +41,8 @@ public class UserView {
 
         switch (option) {
             case 'Y':
-                System.out.println("");
                 User user = userControl.getUserById(newUser.getId());
-                System.out.println(user);
+                System.out.println("\n" + user);
                 break;
             case 'N':
                 break;
@@ -55,7 +53,10 @@ public class UserView {
 
     }
 
-    public void findUser(int id){
-        userControl.getUserById(id);
+    public void findUser(UserControllerImpl userControl){
+        User userFound = userControl.getUserById(getUserId());
+        if (userFound != null){
+            System.out.println("\n" + userFound);
+        }
     }
 }

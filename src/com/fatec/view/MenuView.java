@@ -1,7 +1,9 @@
 package com.fatec.view;
 
 import com.fatec.controller.impl.TaskControllerImpl;
+import com.fatec.controller.impl.UserControllerImpl;
 import com.fatec.model.entities.TaskRepository;
+import com.fatec.model.entities.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class MenuView {
         boolean cont = true;
 
         TaskControllerImpl taskControl = new TaskControllerImpl(new TaskRepository(new ArrayList<>()));
+        UserControllerImpl userControl = new UserControllerImpl(new UserRepository(new ArrayList<>()));
 
         do {
 
@@ -37,7 +40,7 @@ public class MenuView {
                     break;
                 case 2:
                     System.out.println("\nLet's create a user");
-                    userview.signUp();
+                    userview.signUp(userControl);
                     break;
                 case 3:
                     System.out.println("\nFind task by ID");
@@ -45,7 +48,7 @@ public class MenuView {
                     break;
                 case 4:
                     System.out.println("\nFind user by ID");
-
+                    userview.findUser(userControl);
                     break;
                 case 10:
                     System.out.println("Exiting...");
