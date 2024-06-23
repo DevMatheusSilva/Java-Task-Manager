@@ -22,7 +22,7 @@ public class TaskRepository {
     }
 
     public void showAllTasks(){
-        tasks.forEach(task -> System.out.println(task));
+        tasks.forEach(System.out::println);
     }
 
     public void updateTaskName(int id, String new_name){
@@ -36,7 +36,18 @@ public class TaskRepository {
     }
 
     public Task getTaskById(int id){
-        return tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
+        try{
+            Task reTask = tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
+            if (reTask == null){
+                throw new Exception("The task with the id " + id + " was not founded");
+            } else {
+                return reTask;
+            }
+        } catch (Exception e){
+            System.out.println("\nAn error occurred: " + e.getMessage() + "\n");
+            return null;
+        }
+
     }
     
 }

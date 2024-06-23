@@ -1,8 +1,7 @@
 package com.fatec.view;
 
-import java.util.ArrayList;
-import com.fatec.controller.impl.*;
-import com.fatec.model.entities.*;
+import com.fatec.controller.impl.TaskControllerImpl;
+import com.fatec.model.entities.Task;
 
 import java.util.Scanner;
 
@@ -10,39 +9,37 @@ public class TaskView {
 
     Scanner sc = new Scanner(System.in);
 
-    TaskControllerImpl taskControl = new TaskControllerImpl(new TaskRepository(new ArrayList<>()));
-    UserControllerImpl userControl = new UserControllerImpl(new UserRepository(new ArrayList<>()));
-
     public String getTaskName(){
         System.out.print("Enter the task name: ");
-        String taskName = sc.nextLine();
-
-        return taskName;
+        return sc.nextLine();
     }
 
     public String getTaskDesc(){
         System.out.print("Enter the task description: ");
-        String taskDesc = sc.nextLine();
-
-        return taskDesc;
+        return sc.nextLine();
     }
 
-    public void createTask(){
+    public int getTaskId(){
+        System.out.print("Enter the task ID: ");
+        return sc.nextInt();
+    }
+
+    public void createTask(TaskControllerImpl taskControl){
 
         String taskName = getTaskName();
         String taskDesc = getTaskDesc();
 
         Task newTask = new Task(taskName, taskDesc);
         taskControl.createTask(newTask);
+        
 
         System.out.print("Task created successfully, do you wanna see it? [Y/N]: ");
         int option = sc.nextLine().toUpperCase().charAt(0);
 
         switch (option) {
             case 'Y':
-                System.out.println("");
                 Task task = taskControl.getTaskById(newTask.getTask_id());
-                System.out.println(task);
+                System.out.println("\n" + task);
                 break;
             case 'N':
                 break;
@@ -51,6 +48,13 @@ public class TaskView {
                 break;
         }
         
+    }
+
+    public void findTask(TaskControllerImpl taskControl){
+        Task taskFound = taskControl.getTaskById(getTaskId());
+        if (taskFound != null){
+            System.out.println("\n" + taskFound);
+        }
     }
 
 }

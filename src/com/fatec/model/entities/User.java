@@ -1,14 +1,17 @@
 package com.fatec.model.entities;
 
+
+import com.fatec.model.entities.Task;
+import java.util.List;
+
 public class User {
     private int id;
     private String name;
     private String email;
     private String password;
 
-
     // Constructor
-    public User(String password, String email, String name) {
+    public User(String email, String password, String name) {
         this.password = password;
         this.email = email;
         this.name = name;
