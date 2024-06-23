@@ -52,7 +52,7 @@ public class TaskView {
 
     public void findTask(TaskControllerImpl taskControl){
         Task taskFound = taskControl.getTaskById(getTaskId());
-        if (taskFound != null){
+        if (taskFound != null) {
             System.out.println("\n" + taskFound);
         }
     }

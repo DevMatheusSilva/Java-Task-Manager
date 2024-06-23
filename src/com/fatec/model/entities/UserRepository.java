@@ -22,7 +22,7 @@ public class UserRepository {
     }
 
     public void showUsers(){
-        users.forEach(user -> System.out.println(user));
+        users.forEach(System.out::println);
     }
     
     public void updateUserName(int id, String new_name){
@@ -36,7 +36,17 @@ public class UserRepository {
     }
 
     public User getUserById(int id){
-        return users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+        try {
+            User reUser = users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+            if (reUser == null) {
+                throw new Exception("The user with the id " + id + " was not found");
+            } else {
+                return reUser;
+            }
+        } catch (Exception e){
+            System.out.println("\nAn error occurred: " + e.getMessage() + "\n");
+            return null;
+        }
     }
 
 }   
