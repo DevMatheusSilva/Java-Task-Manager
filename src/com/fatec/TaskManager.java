@@ -1,13 +1,15 @@
 package com.fatec;
 
-import com.fatec.view.MenuView;
+import com.fatec.controller.impl.*;
+import com.fatec.model.entities.*;
+import com.fatec.view.*;
+
+import java.util.ArrayList;
+
 public class TaskManager {
 
     public static void main(String[] args) {
-        MenuView menu = new MenuView();
-
-        menu.mostrarOpcoes();
-        
+        new MenuView().showOptions();
     }
 
 }
