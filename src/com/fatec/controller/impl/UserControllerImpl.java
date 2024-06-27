@@ -18,28 +18,30 @@ public class UserControllerImpl implements UserController{
     }
 
     @Override
-    public void removeUser(User rem_user) {
-        repository.removeUser(rem_user);
+    public void removeUser(User remUser) {
+        if (remUser != null) repository.removeUser(remUser);
     }
 
     @Override
     public void showUsers() {
         repository.showUsers();
     }
-    
+
     @Override
-    public User getUserByName(String userName){
-        return repository.getUserByName(userName);
+    public void updateUserName(User user, String newName){
+        repository.updateUserName(user, newName);
     }
 
     @Override
-    public void updateUserName(String oldName, String newName){
-        repository.updateUserName(oldName, newName);
+    public User findUser(String userName) throws Exception{
+        User user = repository.getUserByName(userName);
+        if (user == null) throw new Exception ("The user '" + userName + "' was not found!");
+        return user;
     }
-    
+
     @Override
-    public void updateUserEmail(String userName, String newEmail){
-        repository.updateUserEmail(userName, newEmail);
+    public void updateUserEmail(User user, String newEmail){
+        repository.updateUserEmail(user, newEmail);
     }
     
 }   

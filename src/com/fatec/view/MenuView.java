@@ -21,11 +21,19 @@ public class MenuView {
         while (true) {
             try {
                 System.out.println("Welcome to Task Manager\n");
-                System.out.println("1 - Create Task");
-                System.out.println("2 - Create User");
-                System.out.println("3 - Find Task");
-                System.out.println("4 - Find User");
-                System.out.println("10 - Exit");
+                System.out.println("1 - Create task");
+                System.out.println("2 - Delete task");
+                System.out.println("3 - Update task name");
+                System.out.println("4 - Update task description");
+                System.out.println("5 - Search task");
+                System.out.println("6 - Show tasks");
+                System.out.println("7 - Create user");
+                System.out.println("8 - Delete user");
+                System.out.println("9 - Update user name");
+                System.out.println("10 - Update user Email");
+                System.out.println("11 - Search user");
+                System.out.println("12 - Show users");
+                System.out.println("13 - Exit");
 
                 TaskView taskview = new TaskView();
                 UserView userview = new UserView();
@@ -39,18 +47,50 @@ public class MenuView {
                         taskview.createTask(taskControl);
                         break;
                     case 2:
+                        System.out.println("\nLet's delete a task");
+                        taskview.deleteTask(taskControl);
+                        break;
+                    case 3:
+                        System.out.println("\nLet's update a task name");
+                        taskview.updateTaskName(taskControl);
+                        break;
+                    case 4:
+                        System.out.println("\nLet's update a task description");
+                        taskview.updateTaskDesc(taskControl);
+                        break;
+                    case 5:
+                        System.out.println("\nLet's search a task");
+                        taskview.findTask(taskControl);
+                        break;
+                    case 6:
+                        System.out.println("\nThis is the list of all tasks\n");
+                        taskControl.showAllTasks();
+                        break;
+                    case 7:
                         System.out.println("\nLet's create a user");
                         userview.signUp(userControl);
                         break;
-                    case 3:
-                        System.out.println("\nFind task by ID");
-                        taskview.findTask(taskControl);
+                    case 8:
+                        System.out.println("\nLet's delete a user");
+                        userview.deleteUser(userControl);
                         break;
-                    case 4:
-                        System.out.println("\nFind user by ID");
-                        userview.findUser(userControl);
+                    case 9:
+                        System.out.println("\nLet's update a user name");
+                        userview.updateUserName(userControl);
                         break;
                     case 10:
+                        System.out.println("\nLet's update a user email");
+                        userview.updateUserEmail(userControl);
+                        break;
+                    case 11:
+                        System.out.println("\nLet's search a user");
+                        userview.findUser(userControl);
+                        break;
+                    case 12:
+                        System.out.println("\nThis is the list of all users\n");
+                        userControl.showUsers();
+                        break;
+                    case 13:
                         System.out.println("Exiting...");
                         sc.close();
                         return;

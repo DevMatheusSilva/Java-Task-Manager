@@ -25,30 +25,20 @@ public class TaskRepository {
         tasks.forEach(System.out::println);
     }
 
-    public void updateTaskName(String oldName, String new_name){
-        Task task = getTaskByName(oldName);
+    public void updateTaskName(Task task, String new_name){
         task.setTask_name(new_name);
     }
     
-    public void updateTaskDesc(String taskName, String newDesc){
-        Task task = getTaskByName(taskName);
+    public void updateTaskDesc(Task task, String newDesc){
         task.setDesc(newDesc);
     }
 
     public Task getTaskByName(String taskName){
-
-        try{
-            Task reTask = tasks.stream().filter(task -> task.getTask_name().toUpperCase().contains(taskName.toUpperCase())).findFirst().orElse(null);
-            if (reTask == null){
-                throw new Exception("The task '" + taskName + "' does not exist");
-            } else {
-                return reTask;
-            }
-        } catch (Exception e){
-            System.out.println("\nAn error occurred: " + e.getMessage() + "\n");
-            return null;
-        }
-
+        return tasks.stream().filter(task -> task.getTask_name().toUpperCase().contains(taskName.toUpperCase())).findFirst().orElse(null);
+    }
+    
+    public void checkTask(Task task){
+        task.setCompleted(true);
     }
     
 }
