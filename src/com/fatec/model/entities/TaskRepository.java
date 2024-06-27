@@ -25,29 +25,20 @@ public class TaskRepository {
         tasks.forEach(System.out::println);
     }
 
-    public void updateTaskName(int id, String new_name){
-        Task task = getTaskById(id);
+    public void updateTaskName(Task task, String new_name){
         task.setTask_name(new_name);
     }
     
-    public void updateTaskDesc(int id, String newDesc){
-        Task task = getTaskById(id);
+    public void updateTaskDesc(Task task, String newDesc){
         task.setDesc(newDesc);
     }
 
-    public Task getTaskById(int id){
-        try{
-            Task reTask = tasks.stream().filter(task -> task.getTask_id() == id).findFirst().orElse(null);
-            if (reTask == null){
-                throw new Exception("The task with the id " + id + " was not founded");
-            } else {
-                return reTask;
-            }
-        } catch (Exception e){
-            System.out.println("\nAn error occurred: " + e.getMessage() + "\n");
-            return null;
-        }
-
+    public Task getTaskByName(String taskName){
+        return tasks.stream().filter(task -> task.getTask_name().toUpperCase().contains(taskName.toUpperCase())).findFirst().orElse(null);
+    }
+    
+    public void checkTask(Task task){
+        task.setCompleted(true);
     }
     
 }

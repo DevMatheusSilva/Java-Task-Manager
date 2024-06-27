@@ -13,14 +13,13 @@ public class TaskControllerImpl implements TaskController{
     }
 
     @Override
-    public void createTask(Task new_task) {
-        repository.addTask(new_task);
+    public void createTask(Task newTask) {
+        repository.addTask(newTask);
     }
 
     @Override
-    public void removeTask(int id) {
-        Task rem_task = repository.getTaskById(id);
-        repository.removeTask(rem_task);
+    public void removeTask(Task remTask) {
+        if (remTask != null) repository.removeTask(remTask);
     }
 
     @Override
@@ -29,18 +28,25 @@ public class TaskControllerImpl implements TaskController{
     }
     
     @Override
-    public Task getTaskById(int id) {
-        return repository.getTaskById(id);
-    }
-    
-    @Override
-    public void updateTaskName(int id, String newName){
-        repository.updateTaskName(id, newName);
+    public Task findTask(String taskName) throws Exception{
+        Task task = repository.getTaskByName(taskName);
+        if (task == null) throw new Exception ("The task '" + taskName + "' was not found!");
+        return task;
     }
 
     @Override
-    public void updateTaskDesc(int id, String newDesc){
-        repository.updateTaskDesc(id, newDesc);
+    public void updateTaskName(Task task, String newName){
+        repository.updateTaskName(task, newName);
+    }
+
+    @Override
+    public void checkTask(Task task){
+        if (task != null) repository.checkTask(task);
+    }
+
+    @Override
+    public void updateTaskDesc(Task task, String newDesc){
+        repository.updateTaskDesc(task, newDesc);
     }
 
 }

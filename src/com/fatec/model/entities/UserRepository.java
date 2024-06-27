@@ -25,28 +25,16 @@ public class UserRepository {
         users.forEach(System.out::println);
     }
     
-    public void updateUserName(int id, String new_name){
-        User user = getUserById(id);
+    public void updateUserName(User user, String new_name){
         user.setName(new_name);
     }
     
-    public void updateUserEmail(int id, String newEmail){
-        User user = getUserById(id);
+    public void updateUserEmail(User user, String newEmail){
         user.setEmail(newEmail);
     }
 
-    public User getUserById(int id){
-        try {
-            User reUser = users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
-            if (reUser == null) {
-                throw new Exception("The user with the id " + id + " was not found");
-            } else {
-                return reUser;
-            }
-        } catch (Exception e){
-            System.out.println("\nAn error occurred: " + e.getMessage() + "\n");
-            return null;
-        }
+    public User getUserByName(String userName){
+        return users.stream().filter(user -> user.getName().toUpperCase().contains(userName.toUpperCase())).findFirst().orElse(null);
     }
 
 }   
